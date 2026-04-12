@@ -1,6 +1,6 @@
 # Oliver Simmonds — Personal Website
 
-A clean, minimalist personal website inspired by the text-first aesthetic of darioamodei.com, with a colour palette drawn from Oliver Simmonds' CV (deep crimson, warm gold accents). Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools.
+A clean, minimalist personal website inspired by the text-first aesthetic of darioamodei.com, with a colour palette drawn from Oliver Simmonds' CV (deep crimson, warm gold accents). Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools. Includes a link to your CV on the home page.
 
 ## Pages
 
