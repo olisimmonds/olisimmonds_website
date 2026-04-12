@@ -1,0 +1,531 @@
+/* ============================================================
+   CSS Custom Properties — Light / Dark theme
+   Colour palette drawn from Oliver Simmonds' CV:
+     - Deep crimson  (#7B1818) for section headings
+     - Medium red    (#C0392B) for accents
+     - Warm gold     (#C8A840) for decorative rules
+   ============================================================ */
+:root {
+  --crimson:        #7B1818;
+  --crimson-hover:  #9B2020;
+  --gold:           #C8A840;
+
+  --bg:             #FFFFFF;
+  --bg-subtle:      #F9F6F3;
+  --nav-bg:         rgba(255, 255, 255, 0.92);
+
+  --text:           #1A1A1A;
+  --text-muted:     #666666;
+  --text-link:      #7B1818;
+  --text-link-hover:#9B2020;
+
+  --border:         #E8E3DE;
+
+  --nav-height:     56px;
+  --content-width:  700px;
+  --pad:            24px;
+  --transition:     0.2s ease;
+}
+
+[data-theme="dark"] {
+  --bg:             #0F0F0F;
+  --bg-subtle:      #1A1717;
+  --nav-bg:         rgba(15, 15, 15, 0.92);
+
+  --text:           #E5E0DB;
+  --text-muted:     #8A8480;
+  --text-link:      #D47060;
+  --text-link-hover:#E08575;
+
+  --border:         #2E2828;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+/* ============================================================
+   Header & Navigation
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  height: var(--nav-height);
+  transition: transform 0.3s ease, background-color var(--transition),
+              border-color var(--transition);
+}
+
+.site-header.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-home {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.nav-home:hover {
+  color: var(--crimson);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--crimson);
+}
+
+/* ============================================================
+   Theme Toggle
+   ============================================================ */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: color var(--transition), background-color var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  background-color: var(--bg-subtle);
+}
+
+/* Show/hide sun vs moon based on active theme */
+.icon-sun  { display: inline; }
+.icon-moon { display: none;   }
+
+[data-theme="dark"] .icon-sun  { display: none;   }
+[data-theme="dark"] .icon-moon { display: inline; }
+
+/* ============================================================
+   Main Layout
+   ============================================================ */
+.main-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 64px var(--pad) 96px;
+}
+
+/* ============================================================
+   Bio Section (home)
+   ============================================================ */
+.bio-section {
+  margin-bottom: 72px;
+}
+
+.page-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+
+.page-subtitle {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 36px;
+  letter-spacing: 0.01em;
+}
+
+.bio-body {
+  margin-bottom: 8px;
+}
+
+.bio-body p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.bio-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Hidden extended bio */
+.bio-extra {
+  display: none;
+  margin-top: 18px;
+}
+
+.bio-extra.visible {
+  display: block;
+}
+
+.bio-extra p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.bio-extra p:last-child {
+  margin-bottom: 0;
+}
+
+/* More/Less toggle */
+.more-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--crimson);
+  padding: 0;
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition);
+}
+
+.more-toggle:hover {
+  color: var(--crimson-hover);
+}
+
+.more-arrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.more-toggle[aria-expanded="true"] .more-arrow {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   Contact Links
+   ============================================================ */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.contact-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.contact-link:hover {
+  color: var(--crimson);
+}
+
+.contact-sep {
+  margin: 0 12px;
+  color: var(--border);
+  font-weight: 400;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+/* ============================================================
+   Section Headings & Rules
+   ============================================================ */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 10px;
+}
+
+.gold-rule {
+  height: 2px;
+  background: linear-gradient(to right, var(--gold) 0%, transparent 80%);
+  margin-bottom: 24px;
+  border: none;
+}
+
+/* ============================================================
+   Post List (home writing section)
+   ============================================================ */
+.post-list {
+  list-style: none;
+}
+
+.post-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-item:first-of-type {
+  border-top: 1px solid var(--border);
+}
+
+.post-link {
+  font-size: 0.975rem;
+  color: var(--text);
+  flex: 1;
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+
+.post-link:hover {
+  color: var(--crimson);
+}
+
+.post-year {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 20px var(--pad) 48px;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer p {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Blog / Article Page
+   ============================================================ */
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  transition: color var(--transition);
+}
+
+.article-back:hover {
+  color: var(--crimson);
+}
+
+.article-back svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.article-header {
+  margin-bottom: 48px;
+}
+
+.article-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.article-meta {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+/* Opening quotes block */
+.epigraph {
+  margin: 0 0 44px;
+  padding: 22px 26px;
+  background-color: var(--bg-subtle);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.epigraph blockquote {
+  margin-bottom: 16px;
+}
+
+.epigraph blockquote:last-child {
+  margin-bottom: 0;
+}
+
+.epigraph blockquote p {
+  font-size: 0.925rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 5px;
+}
+
+.epigraph blockquote cite {
+  font-size: 0.775rem;
+  font-style: normal;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Article body prose */
+.article-body {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.article-body p {
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+.article-body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Figures */
+.article-body figure {
+  margin: 44px 0;
+}
+
+.article-body figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  display: block;
+  transition: border-color var(--transition);
+}
+
+.article-body figcaption {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.article-body figcaption strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Section divider within article */
+.article-rule {
+  height: 2px;
+  background: linear-gradient(to right, var(--gold) 0%, transparent 70%);
+  border: none;
+  margin: 52px 0;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  :root {
+    --pad: 20px;
+  }
+
+  .main-content {
+    padding: 44px var(--pad) 72px;
+  }
+
+  .page-name {
+    font-size: 1.8rem;
+  }
+
+  .article-title {
+    font-size: 1.6rem;
+  }
+
+  .post-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .epigraph {
+    padding: 18px 20px;
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oliver Simmonds — Data Scientist and AI Engineer. Building AI tools for energy trading, machine learning pipelines, and LLM-powered products.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Oliver Simmonds">
+  <meta property="og:description" content="Data Scientist · AI Engineer">
+  <meta property="og:type" content="website">
+
+  <title>Oliver Simmonds</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Prevent FOUC: apply saved theme immediately -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ======================================================
+       Header / Navigation
+       ====================================================== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner" aria-label="Primary">
+      <a href="index.html" class="nav-home">Oliver Simmonds</a>
+      <div class="nav-right">
+        <a href="blog.html" class="nav-link">Writing</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="icon-sun" aria-hidden="true">☀</span>
+          <span class="icon-moon" aria-hidden="true">◑</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       Main Content
+       ====================================================== -->
+  <main class="main-content">
+
+    <!-- Bio -->
+    <section class="bio-section" aria-labelledby="bio-name">
+      <h1 class="page-name" id="bio-name">Oliver Simmonds</h1>
+      <p class="page-subtitle">Data Scientist &nbsp;·&nbsp; AI Engineer</p>
+
+      <div class="bio-body">
+        <p>
+          I'm a Data Scientist at <strong>SSE</strong>, one of the UK's largest energy
+          companies, where I build AI-powered tools for energy trading, lead LLM
+          integrations across engineering teams, and deliver automation at scale — including
+          a system that now handles draft responses for 30,000 emails a year. I was
+          fast-tracked from a two-year graduate scheme into a permanent role after 14
+          months of consistently outstanding performance reviews.
+        </p>
+      </div>
+
+      <!-- Extended bio (hidden by default) -->
+      <div class="bio-extra" id="bio-extra" aria-hidden="true">
+        <p>
+          I hold an <strong>MSc in Artificial Intelligence</strong> from the University of
+          Southampton, graduating with Distinction. I received the £4,000 Richard Newitt
+          Postgraduate Bursary for the highest average mark in the School of Electronics
+          and Computer Science, and the G-Research Award for the highest grade in AI.
+          Before that, I graduated with a <strong>First Class BSc in Mathematics</strong>
+          (81%) from the University of Bristol, where I co-founded the Artificial General
+          Intelligence Safety Group.
+        </p>
+        <p>
+          Beyond SSE, I've worked independently across a range of AI engineering
+          engagements — building RAG pipelines, ML models, data products, and evaluation
+          frameworks for startups and research institutions, from eco-tech companies to one
+          of Europe's largest angel VC programmes. I also served as the world's first
+          Digital Ambassador at parkrun.
+        </p>
+        <p>
+          My technical stack centres on Python, AI/ML, LLMs, and cloud-native tools
+          (Azure, Databricks), with extensive experience delivering production-grade
+          systems end-to-end.
+        </p>
+      </div>
+
+      <button class="more-toggle" id="more-toggle" aria-expanded="false" aria-controls="bio-extra">
+        <span class="more-label">More</span>
+        <span class="more-arrow" aria-hidden="true">↓</span>
+      </button>
+
+      <!-- Contact / social links -->
+      <div class="contact-links" aria-label="Contact and social links">
+        <a href="mailto:oliver.a.simmonds@gmail.com" class="contact-link">Email</a>
+        <span class="contact-sep" aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/oliver-simmonds/" class="contact-link"
+           target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="contact-sep" aria-hidden="true">·</span>
+        <a href="https://github.com/olisimmonds" class="contact-link"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <!-- Writing index -->
+    <section aria-labelledby="writing-label">
+      <h2 class="section-label" id="writing-label">Writing</h2>
+      <hr class="gold-rule" aria-hidden="true">
+      <ul class="post-list" role="list">
+        <li class="post-item">
+          <a href="blog.html" class="post-link">
+            What jobs will we have after complete human automation?
+          </a>
+          <span class="post-year">2024</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       Footer
+       ====================================================== -->
+  <footer class="site-footer">
+    <p>© 2025 Oliver Simmonds</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
